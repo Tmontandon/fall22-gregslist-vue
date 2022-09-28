@@ -5,8 +5,8 @@
       <h5>{{car.make}} {{car.model}}</h5>
       <div class="align-items-center d-flex gap-2">
         <img :src="seller.picture" :alt="seller.name" :title="seller.name" height="30" class="rounded">
-        <i class="mdi mdi-delete-forever fs-4 selectable rounded" @click.stop="$emit('deleteClassified')"
-          v-if="account.id == seller.id"></i>
+        <!-- <i class="mdi mdi-delete-forever fs-4 selectable rounded" @click.stop="$emit('deleteClassified')"
+          v-if="account.id == seller.id"></i> -->
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@ export default {
   setup(props, { emit }) {
 
     onMounted(() => {
-      console.log('neat huh???')
+      // console.log('neat huh???')
     })
 
 

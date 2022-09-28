@@ -1,11 +1,11 @@
 <template>
   <div class="details" v-if="classified">
 
-    <div class="col-10 m-auto" v-if="classified.listingType == 'Car'">
-
-      <CarCard :car="classified.listing" :seller="classified.seller" />
+    <div class="col-11 " v-if="classified.listingType == 'Car'">
+      <SelectedCar :car="classified.listing" :seller="classified.seller" />
+      <i class="mdi mdi-delete-forever fs-4 selectable rounded" @click="deleteClassified(classified.id)"></i>
     </div>
-    <div>{{classified.listingType}}</div>
+
 
   </div>
   <div v-else>
@@ -21,6 +21,8 @@ import { AppState } from '../AppState.js';
 import CarCard from '../components/CarCard.vue';
 import { classifiedsService } from '../services/ClassifiedsService.js';
 import Pop from '../utils/Pop.js';
+import SelectedCar from '../components/SelectedCar.vue';
+import { logger } from '../utils/Logger.js';
 
 export default {
   setup() {
@@ -39,9 +41,25 @@ export default {
       getClassifiedById();
     });
     return {
-      classified: computed(() => AppState.activeClassified)
+      classified: computed(() => AppState.activeClassified),
+      account: computed(() => AppState.account),
+      classifieds: computed(() => AppState.classifieds),
+      deleteClassified() {
+        emit('deleteClassified')
+      },
+      async deleteClassified(id) {
+        try {
+          logger.log(id)
+          const yes = await Pop.confirm('Delete the Listing?')
+          if (!yes) { return }
+          await classifiedsService.deleteClassified(id)
+          router.push({ name: "Home" });
+        } catch (error) {
+          Pop.error(error, '[Deleting Classified]')
+        }
+      }
     };
   },
-  components: { CarCard }
+  components: { CarCard, SelectedCar }
 }
 </script>

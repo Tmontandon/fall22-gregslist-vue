@@ -4,6 +4,14 @@
       <div class="col-md-2 d-none d-md-block bg-dark text-light sidebar">
         <Login />
 
+        <router-link :to="{ name: 'Home',  }">
+          <button class="btn">
+            <span class="text-success lighten-30 selectable text-uppercase">
+              Home Page
+            </span>
+          </button>
+        </router-link>
+
         <button class="btn" data-bs-target="#classifiedsCanvas" data-bs-toggle="offcanvas" v-if="account.id">
           <span class="text-success lighten-30 selectable text-uppercase">
             Add a Listing

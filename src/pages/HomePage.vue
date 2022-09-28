@@ -12,6 +12,15 @@
             <CarCard :car="c.listing" :seller="c.seller" @deleteClassified="deleteClassified(c.id)" />
           </router-link>
         </div>
+        <div v-else-if="c.listingType == 'Job'">
+          <router-link :to="{
+            name: 'Details',
+            params:{
+              id: c.id
+            }
+          }">
+          </router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -42,15 +51,15 @@ export default {
 
     return {
       classifieds: computed(() => AppState.classifieds),
-      async deleteClassified(id) {
-        try {
-          const yes = await Pop.confirm('Delete the Listing?')
-          if (!yes) { return }
-          await classifiedsService.deleteClassified(id)
-        } catch (error) {
-          Pop.error(error, '[Deleting Classified]')
-        }
-      }
+      // async deleteClassified(id) {
+      //   try {
+      //     const yes = await Pop.confirm('Delete the Listing?')
+      //     if (!yes) { return }
+      //     await classifiedsService.deleteClassified(id)
+      //   } catch (error) {
+      //     Pop.error(error, '[Deleting Classified]')
+      //   }
+      // }
     };
   },
   components: { CarCard }
