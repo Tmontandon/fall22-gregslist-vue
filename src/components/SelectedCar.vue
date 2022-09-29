@@ -1,17 +1,17 @@
 <template>
-  <div class="SelectedCar justify-content-evenly d-flex my-5">
+  <div class="SelectedCar card justify-content-evenly d-flex my-5">
     <div>
-      <img class="rounded car" :src="car.imgUrl" :alt="car.make">
+      <img class="rounded car mx-4" :src="car.imgUrl" :alt="car.make">
     </div>
     <div>
-      <div class="my-3">
+      <div class="m-3 ">
         <p>{{car.description}}</p>
-        <h3>{{car.make}}, {{car.model}}, {{car.year}}</h3>
+        <h3>{{car.make}} | {{car.model}} | {{car.year}}</h3>
         <h4>${{car.price}}</h4>
       </div>
       <!-- {{car.id}} -->
-      <h2 class="my-3">{{seller.name}}</h2>
-      <img :src="seller.picture" alt="SellerPicture">
+      <h2 class="m-3">{{seller.name}}</h2>
+      <img class="m-3" :src="seller.picture" alt="SellerPicture">
     </div>
   </div>
   <div class="d-flex justify-content-end">

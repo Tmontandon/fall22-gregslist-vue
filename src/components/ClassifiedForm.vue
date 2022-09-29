@@ -41,7 +41,27 @@
     </div>
 
     <div v-else-if="editable.listingType == 'Job'">
-      <h1>TODO</h1>
+      <div class="form-group">
+        <label for="company">Company:</label>
+        <input type="text" v-model="editable.listing.company" placeholder="Company" required class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="jobTitle">Title:</label>
+        <input type="text" v-model="editable.listing.jobTitle" placeholder="Title" required class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="hours">Hours:</label>
+        <input type="number" v-model="editable.listing.hours" placeholder="Hours" required class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="rate">Rate:</label>
+        <input type="number" v-model="editable.listing.rate" placeholder="Rate" required class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea v-model="editable.listing.description" placeholder="description" class="form-control"
+          rows="4"></textarea>
+      </div>
     </div>
 
 

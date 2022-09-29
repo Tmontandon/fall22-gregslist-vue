@@ -1,6 +1,6 @@
 <template>
-  <div class="card">
-    <img class="rounded-top" :src="car.imgUrl" :alt="car.make">
+  <div class="card CarCard d-flex justify-content-between elevation-2">
+    <img class="rounded-top yo" :src="car.imgUrl" :alt="car.make">
     <div class="card-body d-flex justify-content-between align-items-center">
       <h5>{{car.make}} {{car.model}}</h5>
       <div class="align-items-center d-flex gap-2">
@@ -44,5 +44,12 @@ export default {
 
 
 <style lang="scss" scoped>
+.CarCard {
+  height: 32vh;
+}
 
+.yo {
+  height: 20vh;
+  width: auto;
+}
 </style>

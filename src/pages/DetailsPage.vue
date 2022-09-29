@@ -3,10 +3,14 @@
 
     <div class="col-11 " v-if="classified.listingType == 'Car'">
       <SelectedCar :car="classified.listing" :seller="classified.seller" />
-      <i class="mdi mdi-delete-forever fs-4 selectable rounded" @click="deleteClassified(classified.id)"></i>
     </div>
+    <div class="col-11 " v-else-if="classified.listingType == 'Job'">
+      <SelectedJob :job="classified.listing" :seller="classified.seller" />
+    </div>
+    <div class="col-11 " v-else-if="classified.listingType == 'House'">
 
-
+    </div>
+    <i class="mdi mdi-delete-forever fs-4 selectable rounded" @click="deleteClassified(classified.id)"></i>
   </div>
   <div v-else>
     loading...
@@ -23,6 +27,7 @@ import { classifiedsService } from '../services/ClassifiedsService.js';
 import Pop from '../utils/Pop.js';
 import SelectedCar from '../components/SelectedCar.vue';
 import { logger } from '../utils/Logger.js';
+import SelectedJob from '../components/SelectedJob.vue';
 
 export default {
   setup() {
@@ -60,6 +65,6 @@ export default {
       }
     };
   },
-  components: { CarCard, SelectedCar }
+  components: { CarCard, SelectedCar, SelectedJob }
 }
 </script>
