@@ -1,7 +1,7 @@
 <template>
   <main class="container-fluid">
     <div class="row">
-      <div class="col-md-2 d-none d-md-block bg-dark text-light sidebar">
+      <div class="col-md-3 d-none d-md-block bg-dark text-light sidebar">
         <Login />
 
         <router-link :to="{ name: 'Home',  }">
@@ -19,7 +19,7 @@
         </button>
 
       </div>
-      <div class="col-md-10 main-content">
+      <div class="col-md-9 main-content">
         <router-view />
       </div>
     </div>

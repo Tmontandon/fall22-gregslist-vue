@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-3 col-md-4 my-3" v-for="c in classifieds" :key="c.id" :class="c">
+      <div class="col-lg-3 col-md-4 col-sm-2 my-3" v-for="c in classifieds" :key="c.id" :class="c">
         <div v-if="c.listingType == 'Car'">
           <router-link :to="{
             name: 'Details',
